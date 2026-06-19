@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Goku Ultra Instinto - Edición Cósmica</title>
+    <title>Calculadora Transparente - Tulipanes en Movimiento</title>
     <style>
-        /* FONDO ELEGIDO: Nebulosa animada con colores Ultra Instinto (Azul, Violeta y Plata) */
+        /* Fondo base en un degradado rosa suave y romántico */
         body, html {
             margin: 0;
             padding: 0;
@@ -16,20 +16,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135px, #02000a 0%, #050914 25%, #0d1b2a 50%, #1b0c2c 75%, #02000a 100%);
-            background-size: 400% 400%;
-            animation: nebulaMovement 20s ease infinite;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #ffb3c6 100%);
         }
 
-        /* Animación para que el fondo cósmico se mueva lentamente */
-        @keyframes nebulaMovement {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Canvas para los meteoritos (pasan sutilmente por encima) */
-        #space-bg {
+        /* Canvas para la animación de los tulipanes flotantes */
+        #tulip-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -39,15 +30,15 @@
             pointer-events: none;
         }
 
-        /* Contenedor transparente (Estilo Glassmorphism nítido) */
+        /* Contenedor transparente (Estilo Glassmorphism adaptado a tonos rosa) */
         .calculator {
-            background-color: rgba(10, 15, 30, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 25px;
-            border-radius: 20px;
-            border: 2px solid rgba(135, 206, 250, 0.4); 
-            box-shadow: 0 0 35px rgba(135, 206, 250, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.2);
             width: 100%;
             max-width: 380px;
             position: relative;
@@ -73,12 +64,8 @@
             text-align: center;
             margin-bottom: 2px;
             text-transform: lowercase;
+            color: #ff4d6d;
         }
-
-        .label-green { color: #5adbb5; }
-        .label-blue { color: #3498db; }
-        .label-yellow { color: #f1c40f; }
-        .label-orange { color: #e67e22; }
 
         .screen-title {
             font-size: 22px;
@@ -88,14 +75,14 @@
         }
 
         .title-result { color: #2ecc71; }
-        .title-a { color: #3498db; }
-        .title-b { color: #e67e22; }
+        .title-a { color: #4a5568; }
+        .title-b { color: #4a5568; }
 
         .display-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            color: #2d3748;
             font-size: 22px;
             text-align: center;
             padding: 8px;
@@ -109,15 +96,15 @@
         .result-screen {
             font-size: 28px;
             height: 50px;
-            color: #2ecc71;
-            border-color: rgba(46, 204, 113, 0.4);
-            background-color: rgba(46, 204, 113, 0.05);
+            color: #27ae60;
+            border-color: rgba(46, 204, 113, 0.5);
+            background-color: rgba(255, 255, 255, 0.7);
         }
 
         .display-box.active-screen {
-            border-color: #3498db;
-            background-color: rgba(52, 152, 219, 0.2);
-            box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+            border-color: #ff4d6d;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
         }
 
         .inputs-row {
@@ -135,8 +122,8 @@
 
         button {
             height: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
             font-size: 20px;
             font-weight: bold;
             color: white;
@@ -146,47 +133,48 @@
 
         button:active { transform: scale(0.95); }
         button:hover { 
-            filter: brightness(1.3); 
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            filter: brightness(1.1); 
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);
         }
 
-        .btn-red { background-color: #c0392b; border-color: rgba(192, 57, 43, 0.5); }
-        .btn-blue { background-color: #2980b9; border-color: rgba(41, 128, 185, 0.5); }
-        .btn-orange { background-color: #d35400; border-color: rgba(211, 84, 0, 0.5); }
+        /* Colores pastel combinando con la estética de tulipanes */
+        .btn-red { background-color: #ff4d6d; border-color: #ff4d6d; }
+        .btn-blue { background-color: #ff758f; border-color: #ff758f; }
+        .btn-orange { background-color: #ff8fa3; border-color: #ff8fa3; }
         .btn-green { 
-            background-color: #27ae60; 
+            background-color: #52b788; 
             grid-row: span 2; 
             height: 110px;
-            border-color: rgba(39, 174, 96, 0.5);
+            border-color: #52b788;
         }
     </style>
 </head>
 <body>
 
-<canvas id="space-bg"></canvas>
+<canvas id="tulip-bg"></canvas>
 
 <div class="calculator">
     <div class="screens-container">
         <div class="screen-group">
-            <div class="screen-label label-green">screen-result</div>
+            <div class="screen-label">screen-result</div>
             <div class="screen-title title-result">Resultado</div>
             <input type="text" id="screen-result" class="display-box result-screen" readonly placeholder="0">
         </div>
 
         <div class="inputs-row">
             <div class="screen-group" style="width: 35%;">
-                <div class="screen-label label-blue">screen-a</div>
+                <div class="screen-label" style="color: #ff758f;">screen-a</div>
                 <div class="screen-title title-a">A</div>
                 <input type="text" id="screen-a" class="display-box active-screen" readonly placeholder="" onclick="setTarget('a')">
             </div>
 
             <div class="screen-group" style="width: 26%;">
-                <div class="screen-label label-yellow">op-selector</div>
-                <input type="text" id="op-view" class="display-box" style="text-align: center; color: #f1c40f;" readonly placeholder="?">
+                <div class="screen-label" style="color: #ff8fa3;">op-selector</div>
+                <input type="text" id="op-view" class="display-box" style="text-align: center; color: #ff4d6d;" readonly placeholder="?">
             </div>
 
             <div class="screen-group" style="width: 35%;">
-                <div class="screen-label label-orange">screen-b</div>
+                <div class="screen-label" style="color: #ff758f;">screen-b</div>
                 <div class="screen-title title-b">B</div>
                 <input type="text" id="screen-b" class="display-box" readonly placeholder="" onclick="setTarget('b')">
             </div>
@@ -257,7 +245,6 @@
         if (display === '/') display = '÷';
         if (display === '*') display = '×';
         opView.value = display;
-        
         currentTarget = 'b';
         updateFocusStyles();
     }
@@ -282,9 +269,7 @@
             let valB = parseFloat(screenB.value);
             let op = currentOperation;
             let res = 0;
-
             if (isNaN(valA) || isNaN(valB) || !op) return;
-
             if (op === '+') res = valA + valB;
             if (op === '-') res = valA - valB;
             if (op === '*') res = valA * valB;
@@ -292,15 +277,14 @@
                 if (valB === 0) { screenResult.value = "Error"; return; }
                 res = valA / valB;
             }
-
             screenResult.value = Number(res.toFixed(6)).toString();
         } catch (e) {
             screenResult.value = "Error";
         }
     }
 
-    // Animación del Canvas (Estrellas fugaces / Meteoritos)
-    const canvas = document.getElementById('space-bg');
+    // --- ANIMACIÓN INTERACTIVA DE TULIPANES ---
+    const canvas = document.getElementById('tulip-bg');
     const ctx = canvas.getContext('2d');
 
     function resize() {
@@ -310,37 +294,79 @@
     window.addEventListener('resize', resize);
     resize();
 
-    class Meteor {
-        constructor() { this.reset(); }
+    class Tulip {
+        constructor() { this.reset(); this.y = Math.random() * canvas.height; }
         reset() {
-            this.x = Math.random() * canvas.width * 1.3;
-            this.y = Math.random() * -200;
-            this.length = Math.random() * 60 + 40;
-            this.speed = Math.random() * 4 + 2;
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height + Math.random() * 100;
+            this.size = Math.random() * 12 + 10; // Tamaño del tulipán
+            this.speed = Math.random() * 1 + 0.5; // Velocidad de subida lenta
+            this.swingSpeed = Math.random() * 0.02 + 0.01; // Balanceo lateral
+            this.swingRange = Math.random() * 15 + 10;
+            this.angle = Math.random() * Math.PI;
+            // Tonos de rosa/rojo para los tulipanes individuales
+            const colors = ['#ff4d6d', '#ff758f', '#ff8fa3', '#ffb3c6', '#fae0e4'];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
         }
         update() {
-            this.x -= this.speed * 0.7;
-            this.y += this.speed;
-            if (this.y > canvas.height || this.x < -100) this.reset();
+            this.y -= this.speed;
+            this.angle += this.swingSpeed;
+            this.currentX = this.x + Math.sin(this.angle) * this.swingRange;
+            if (this.y < -50) this.reset();
         }
         draw() {
+            ctx.save();
+            ctx.translate(this.currentX, this.y);
+            
+            // Tallo del tulipán (Verde suave)
             ctx.beginPath();
-            let g = ctx.createLinearGradient(this.x, this.y, this.x + this.length * 0.7, this.y - this.length);
-            g.addColorStop(0, 'rgba(135, 206, 250, 0.35)'); 
-            g.addColorStop(1, 'rgba(0,0,0,0)');
-            ctx.strokeStyle = g;
-            ctx.lineWidth = 1.5;
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(this.x + this.length * 0.7, this.y - this.length);
+            ctx.strokeStyle = '#a3b18a';
+            ctx.lineWidth = 2;
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(5, this.size, 2, this.size * 2.5);
             ctx.stroke();
+
+            // Pequeña hoja verde
+            ctx.beginPath();
+            ctx.fillStyle = '#a3b18a';
+            ctx.ellipse(3, this.size * 1.5, this.size * 0.3, this.size * 0.6, Math.PI / 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Capullo del Tulipán (Pétalos)
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = 0.85;
+
+            // Pétalo izquierdo
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(-this.size * 0.7, -this.size * 0.2, -this.size * 0.5, -this.size);
+            ctx.quadraticCurveTo(-this.size * 0.2, -this.size * 0.8, 0, 0);
+            ctx.fill();
+
+            // Pétalo derecho
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(this.size * 0.7, -this.size * 0.2, this.size * 0.5, -this.size);
+            ctx.quadraticCurveTo(this.size * 0.2, -this.size * 0.8, 0, 0);
+            ctx.fill();
+
+            // Pétalo central principal
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.quadraticCurveTo(-this.size * 0.5, -this.size * 0.4, 0, -this.size * 1.1);
+            ctx.quadraticCurveTo(this.size * 0.5, -this.size * 0.4, 0, 0);
+            ctx.fill();
+
+            ctx.restore();
         }
     }
 
-    const meteors = Array.from({ length: 18 }, () => new Meteor());
+    // Generar un grupo de 25 tulipanes flotantes
+    const tulips = Array.from({ length: 25 }, () => new Tulip());
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        meteors.forEach(m => { m.update(); m.draw(); });
+        tulips.forEach(t => { t.update(); t.draw(); });
         requestAnimationFrame(animate);
     }
     animate();
